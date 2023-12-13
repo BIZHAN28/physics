@@ -4,7 +4,7 @@ import { ReactSVG } from 'react-svg';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import pendulum from './pendulum';
-import collision_control from './collision';
+import {collision_control} from './collision';
 import collide from './collision';
 import {SVG} from '@svgdotjs/svg.js';
 import vec2d from './vector2d';

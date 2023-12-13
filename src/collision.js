@@ -31,5 +31,5 @@ function collision_control(arr, dT = 1) {
     }
     return collides;
 }
-
-export default {collision_control, collide};
+export {collision_control};
+export default collide;
