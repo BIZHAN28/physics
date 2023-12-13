@@ -7,7 +7,7 @@ import pendulum from './pendulum';
 import collision_control from './collision';
 import collide from './collision';
 import {SVG} from '@svgdotjs/svg.js';
-
+import vec2d from './vector2d';
 import { draw_pendulum } from './drawer';
 
 
@@ -96,11 +96,11 @@ function App() {
     
     var stepTime = (frame_time / 1000) * time_multiplier;
 
-    // gpends[gpends.length - 1].ball.v = new vec2d(10, 0);
-    // if (timerID == null) {
-    //     frame_time = 20;
-    //     timerID = setInterval(function() { simulation(gpends, glines, gcircles, gcolors, stepTime, szhat) }, frame_time);
-    // }
+    gpends[gpends.length - 1].ball.v = new vec2d(10, 0);
+    if (timerID == null) {
+        frame_time = 20;
+        timerID = setInterval(function() { simulation(gpends, glines, gcircles, gcolors, stepTime, szhat) }, frame_time);
+    }
   }
 
   return (
