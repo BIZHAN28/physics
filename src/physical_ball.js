@@ -1,6 +1,9 @@
 //import "vector2d";
 //import "physical_object";
 
+import vec2d from "./vector2d.js";
+import physical_object from "./physical_object.js";
+
 class physical_ball extends physical_object {
     constructor(mass = 1, radius = 1, x = 0, y = 0) {
         super();
@@ -45,3 +48,5 @@ class physical_ball extends physical_object {
         this.add_vel(dT);
     }
 }
+
+export default physical_ball;

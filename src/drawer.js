@@ -20,3 +20,4 @@ function delete_pendulums() {
     gcolors = [];
 }
 
+export { draw_pendulum, delete_pendulums };

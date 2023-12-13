@@ -28,3 +28,5 @@ class vec2d {
         return this.mul(leni);
     }
 }
+
+export default vec2d;

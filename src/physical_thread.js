@@ -1,5 +1,9 @@
 //import "vector2d";
 //import "physical_object"
+
+import vec2d from "./vector2d";
+import physical_object from "./physical_object";
+
 class physical_thread extends physical_object {
 
     constructor(len = 1, k = 1, connection_object_1 = physical_object(), connection_object_2 = physical_object()) {
@@ -28,3 +32,5 @@ class physical_thread extends physical_object {
         return [F1, F2];
     }
 }
+
+export default physical_thread;

@@ -1,5 +1,7 @@
 //import "vector2d";
 
+import vec2d from "./vector2d";
+
 class physical_object {
     pos = new vec2d(0, 0);
     v = new vec2d(0, 0);
@@ -11,3 +13,5 @@ class physical_object {
         this.a = acc;
     }
 }
+
+export default physical_object;

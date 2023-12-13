@@ -3,6 +3,8 @@ import './App.css';
 import { ReactSVG } from 'react-svg';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
+import pendulum from './pendulum';
+
 
 function App() {
   var draw;
@@ -56,8 +58,6 @@ function App() {
   }
 
   var start = () => {
-    
-
     //constructor(mass = 1, radius = 1, len = 3, k = 1, x = 0, y = 0)
     let gpends = [];
     let glines = [];
@@ -122,8 +122,8 @@ function App() {
         <InputNumber id="pendulums" value={0} onValueChange={(e) => numPends = e } useGrouping={false} />
         <label htmlFor="pendulums">Установите количество маятников</label>
       </span>
-        <Button label="Start" />
-        <Button label="Stop" />
+        <Button label="Start" onClick={start} />
+        <Button label="Stop" onClick={stop} />
       <br />
     </div>
   );

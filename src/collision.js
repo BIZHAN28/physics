@@ -29,3 +29,5 @@ function collision_control(arr, dT = 1) {
     }
     return collides;
 }
+
+export {collide, collision_control};

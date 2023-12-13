@@ -3,6 +3,13 @@
 //import "physical_thread";
 //import "physical_ball";
 //import "fixed_point";
+
+import vec2d from "./vector2d.js";
+import physical_object from "./physical_object.js";
+import physical_thread from "./physical_thread.js";
+import physical_ball from "./physical_ball.js";
+import fixed_point from "./fixed_point.js";
+
 class pendulum {
     
     constructor(mass = 1, radius = 1, len = 3, k = 1, x = 0, y = 0) {
@@ -28,3 +35,5 @@ class pendulum {
         return 1 + Math.min(Math.max(tens * tr_coef * 2, 0), tr_coef * 2);
     }
 }
+
+export default pendulum;

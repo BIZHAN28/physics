@@ -1,5 +1,7 @@
-import "vector2d";
-import "physical_thread";
+// import "vector2d";
+// import "physical_thread";
+
+import physical_thread from "./physical_thread";
 
 class ideal_thread extends physical_thread {
     constructor(len = 1, connection_object_1 = physical_object(), connection_object_2 = physical_object()) {
