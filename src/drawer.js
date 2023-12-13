@@ -8,16 +8,16 @@ function draw_pendulum(line_obj, circle_obj, pend_obj, colr = "#648800", coords_
 
 }
 // function to delete all pendulums
-function delete_pendulums() {
-    for (let i = 0; i < gpends.length; i++) {
-        line_obj.remove();
-        circle_obj.remove();
+// function delete_pendulums(line_obj, circle_obj, gpends, glines) {
+//     for (let i = 0; i < gpends.length; i++) {
+//         line_obj.remove();
+//         circle_obj.remove();
 
-    }
-    gpends = [];
-    glines = [];
-    gcircles = [];
-    gcolors = [];
-}
+//     }
+//     gpends = [];
+//     glines = [];
+//     gcircles = [];
+//     gcolors = [];
+// }
 
-export { draw_pendulum, delete_pendulums };
+export { draw_pendulum };

@@ -4,6 +4,11 @@ import { ReactSVG } from 'react-svg';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import pendulum from './pendulum';
+import collision_control from './collision';
+import collide from './collision';
+import {SVG} from '@svgdotjs/svg.js';
+
+import { draw_pendulum } from './drawer';
 
 
 function App() {
@@ -20,6 +25,8 @@ function App() {
   var y = 100;
   var dx = 2;
   var dy = 2;
+  //draw = SVG.addTo('#draw_field').size(1000, 1000);
+  document.getElementById("draw_field").width = 1000;
 
   var numPends = 3;
 
@@ -63,7 +70,7 @@ function App() {
     let glines = [];
     let gcircles = [];
     let gcolors = ['#648800', '#008864', '#880064'];
-
+    console.log(numPends);
     for (let i = 0; i < numPends; i++) {
         const xOffset = i * 2 * radius;
         const pendulumInstance = new pendulum(mass, radius, dlina, k_hooka, x_podvesa + xOffset, y_podvesa);
@@ -74,7 +81,7 @@ function App() {
     
         const line = draw.line(thrd_).stroke({ color: gcolors[i % 3], width: tens_, linecap: 'round' });
         const circle = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill(gcolors[i % 3]);
-        
+        console.log(pendulumInstance, pendulumInstance.ball, pendulumInstance.ball.v);
         gpends.push(pendulumInstance);
         glines.push(line);
         gcircles.push(circle);
@@ -85,45 +92,45 @@ function App() {
     
     var stepTime = (frame_time / 1000) * time_multiplier;
 
-    gpends[gpends.length - 1].ball.v = new vec2d(10, 0);
-    if (timerID == null) {
-        frame_time = 20;
-        timerID = setInterval(function() { simulation(gpends, glines, gcircles, gcolors, stepTime, szhat) }, frame_time);
-    }
+    // gpends[gpends.length - 1].ball.v = new vec2d(10, 0);
+    // if (timerID == null) {
+    //     frame_time = 20;
+    //     timerID = setInterval(function() { simulation(gpends, glines, gcircles, gcolors, stepTime, szhat) }, frame_time);
+    // }
   }
 
   return (
     <div id='pannel'>
       <span className="p-float-label">
-        <InputNumber id="radius" value={0} onValueChange={(e) => radius = e} useGrouping={false} />
+        <InputNumber id="radius" value={1} onValueChange={(e) => radius = e} useGrouping={false} />
         <label htmlFor="radius">Установите радиус шариков</label>
       </span>
       <span className="p-float-label">
-        <InputNumber id="mass" value={0} onValueChange={(e) =>  mass = e } useGrouping={false} />
+        <InputNumber id="mass" value={1} onValueChange={(e) =>  mass = e } useGrouping={false} />
         <label htmlFor="mass">Установите массу шариков</label>
       </span>
       <span className="p-float-label">
-        <InputNumber id="length" value={0} onValueChange={(e) => dlina = e } useGrouping={false} />
+        <InputNumber id="length" value={20} onValueChange={(e) => dlina = e } useGrouping={false} />
         <label htmlFor="length">Установите длину нити</label>
       </span>
       <span className="p-float-label">
-        <InputNumber id="sim_time" value={0} onValueChange={(e) => frame_time = e } useGrouping={false} />
+        <InputNumber id="sim_time" value={20} onValueChange={(e) => frame_time = e } useGrouping={false} />
         <label htmlFor="sim_time">Установите время одного кадра (мс) </label>
       </span>
       <span className="p-float-label">
-        <InputNumber id="time_mult" value={0} onValueChange={(e) => time_multiplier = e } useGrouping={false} />
+        <InputNumber id="time_mult" value={1} onValueChange={(e) => time_multiplier = e } useGrouping={false} />
         <label htmlFor="time_mult">Установите ускорение времени (1 -- совпадает с реальным)</label>
       </span>
       <span className="p-float-label">
-        <InputNumber id="hook_text" value={0} onValueChange={(e) => k_hooka = e } useGrouping={false} />
+        <InputNumber id="hook_text" value={50} onValueChange={(e) => k_hooka = e } useGrouping={false} />
         <label htmlFor="hook_text">Установите коэффициент в законе Гука</label>
       </span>
       <span className="p-float-label">
-        <InputNumber id="pendulums" value={0} onValueChange={(e) => numPends = e } useGrouping={false} />
+        <InputNumber id="pendulums" value={3} onValueChange={(e) => numPends = e } useGrouping={false} />
         <label htmlFor="pendulums">Установите количество маятников</label>
       </span>
         <Button label="Start" onClick={start} />
-        <Button label="Stop" onClick={stop} />
+        {/* <Button label="Stop" onClick={stop} /> */}
       <br />
     </div>
   );

@@ -1,3 +1,5 @@
+import vec2d from "./vector2d";
+
 function collide(ball1, ball2, dT) {
     if (ball1.test_collision_time(ball2, dT)) {
         let m1 = ball1.m;
@@ -20,8 +22,8 @@ function collide(ball1, ball2, dT) {
 
 function collision_control(arr, dT = 1) {
     let collides = 0;
-    for (i = 1; i < arr.length; i++) {
-        for (j = 0; j < i; j++) {
+    for (let i = 1; i < arr.length; i++) {
+        for (let j = 0; j < i; j++) {
             if (collide(arr[i].ball, arr[j].ball, dT)) {
                 collides += 1;
             }
@@ -30,4 +32,4 @@ function collision_control(arr, dT = 1) {
     return collides;
 }
 
-export {collide, collision_control};
+export default {collision_control, collide};
