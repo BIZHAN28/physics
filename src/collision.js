@@ -1,4 +1,4 @@
-import vec2d from "./vector2d";
+import vec2d from "./types/vector2d";
 
 function collide(ball1, ball2, dT) {
     if (ball1.test_collision_time(ball2, dT)) {

@@ -39,10 +39,9 @@ body {
 }
 
 #draw_field {
-    position: absolute;
+    position: fixed;
     width: 500px;
-    margin-top: -550px;
-    /* margin-top: -1450px; */
+    margin-top: -1450px;
     margin-left: 240px;
     margin-bottom: 200px;
     /* background-color: black; */
