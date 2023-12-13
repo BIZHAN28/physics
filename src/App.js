@@ -87,6 +87,7 @@ function App() {
     // let gpends = [];
     // let glines = [];
     // let gcircles = [];
+    if (timerID) return;
     let gcolors = ['#648800', '#008864', '#880064'];
     for (let i = 0; i < numPends; i++) {
         const xOffset = i * 2 * radius;
