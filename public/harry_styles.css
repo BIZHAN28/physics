@@ -1,5 +1,9 @@
-#title {
-    font-family: sans-serif;
+#pannel {
+    margin: 10px;
+}
+
+#pannel>* {
+    padding: 10px;
 }
 
 #title>span {
@@ -14,9 +18,10 @@
 }
 
 body {
-    background-color: black;
+    /* background-color: black; */
+    font-family: 'Roboto', sans-serif;
     /* text color - white */
-    color: white;
+    /* color: white; */
     /* color: black; */
 }
 

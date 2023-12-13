@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import "primereact/resources/themes/lara-light-cyan/theme.css";
+import "primereact/resources/themes/lara-light-purple/theme.css";
 
 import { ReactSVG } from 'react-svg';
 import { InputNumber } from 'primereact/inputnumber';
@@ -115,7 +115,7 @@ function App() {
     <div className='MAIN'>
       <div id='pannel'>
         <span className="p-float-label">
-          <InputNumber id="radius" value={1} onValueChange={(e) => radius = e.value} useGrouping={false} />
+          <InputNumber id="radius" value={radius} onValueChange={(e) => radius = e.value} useGrouping={false} />
           <label htmlFor="radius">Установите радиус шариков</label>
         </span>
         <span className="p-float-label">
