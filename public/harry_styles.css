@@ -25,4 +25,25 @@ body {
     /* color: black; */
 }
 
+#pannel>* {
+    margin-top: 20px;
+}
 
+.p-button {
+    margin-left: 20px;
+    width: 100px;
+}
+
+#pannel {
+    width: 500px;
+}
+
+#draw_field {
+    position: absolute;
+    width: 500px;
+    margin-top: -1450px;
+    margin-left: 240px;
+    margin-bottom: 200px;
+    /* background-color: black; */
+    /* border: 1px solid black; */
+}
