@@ -1,0 +1,23 @@
+#title {
+    font-family: sans-serif;
+}
+
+#title>span {
+    display: block;
+    font-size: 160%;
+    text-align: center;
+}
+
+#centr>* {
+    width: 1000px;
+    margin: auto;
+}
+
+body {
+    background-color: black;
+    /* text color - white */
+    color: white;
+    /* color: black; */
+}
+
+

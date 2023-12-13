@@ -1,0 +1,89 @@
+#jsdontwork{
+    text-decoration-color: crimson;
+}
+.columns{
+  position: relative;
+}
+#main{
+  font-size: 16pt;
+}
+.split {
+  height: 100%;
+  width: 33%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+.middle {
+  left: 33%;
+}
+
+#main .table{
+
+  display: flex;
+  border: 2px solid #1F1F1F;
+  border-radius: 3px;
+  position: relative;
+  width: fit-content;
+  padding: 2rem;
+  padding-top: 0;
+  height: fit-content;
+  padding-bottom: 2.2rem;
+  margin: 1rem;
+
+}
+#main .table .miniheader{
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-self: center;
+  border-bottom: 1.5px solid #3F3F5F;
+  background: #DEDEDE;
+  color: darkblue;
+  text-align: center;
+  width: 100%;
+}
+#main .table .colored{
+  color: red;
+  background: #F0F0F0;
+}
+#main .table .miniheader.max{
+  flex: 1;
+}
+
+#main .table .TableBody{
+  position: relative;
+  top: 2rem;
+  color: #101010;
+  width: inherit;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+#main .table .TableBody.max{
+  flex: 1;
+}
+#main .table .TableSpan{
+  align-self: center;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid #505050;
+  margin-bottom: 1rem;
+  padding-bottom: 1px;
+  width: inherit;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+}
