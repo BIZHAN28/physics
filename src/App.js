@@ -96,43 +96,43 @@ function App() {
 
 
   return (
-    <div className='MAIN'>
-      <div id='pannel'>
-        <span className="p-float-label">
-          <InputNumber id="radius" value={radius} onValueChange={(e) => { radius = e.value; } } useGrouping={false} />
-          <label htmlFor="radius">Установите радиус шариков</label>
-        </span>
-        <span className="p-float-label">
-          <InputNumber id="mass" value={1} onValueChange={(e) =>  mass = e.value } useGrouping={false} />
-          <label htmlFor="mass">Установите массу шариков</label>
-        </span>
-        <span className="p-float-label">
-          <InputNumber id="length" value={20} onValueChange={(e) => dlina = e.value } useGrouping={false} />
-          <label htmlFor="length">Установите длину нити</label>
-        </span>
-        <span className="p-float-label">
-          <InputNumber id="sim_time" value={20} onValueChange={(e) => frame_time = e.value } useGrouping={false} />
-          <label htmlFor="sim_time">Установите время одного кадра (мс) </label>
-        </span>
-        <span className="p-float-label">
-          <InputNumber id="time_mult" value={1} onValueChange={(e) => time_multiplier = e.value } useGrouping={false} />
-          <label htmlFor="time_mult">Установите ускорение времени (1 -- совпадает с реальным)</label>
-        </span>
-        <span className="p-float-label">
-          <InputNumber id="hook_text" value={70} onValueChange={(e) => k_hooka = e.value } useGrouping={false} />
-          <label htmlFor="hook_text">Установите коэффициент в законе Гука</label>
-        </span>
-        <span className="p-float-label">
-          <InputNumber id="pendulums" value={3} onValueChange={(e) => numPends = e.value } useGrouping={false} />
-          <label htmlFor="pendulums">Установите количество маятников</label>
-        </span>
-          <Button label="Start" onClick={start} />
-          <Button label="Stop" onClick={stop} />
-        <br />
-      </div>
+     <div className='MAIN'>
+       <div id='pannel'>
+         <span className="p-float-label">
+           <InputNumber minFractionDigits={0} maxFractionDigits={2} id="radius" value={radius} onValueChange={(e) => radius = e.value } useGrouping={false} />
+           <label htmlFor="radius">Установите радиус шариков</label>
+         </span>
+         <span className="p-float-label">
+           <InputNumber minFractionDigits={0} maxFractionDigits={2} id="mass" value={1} onValueChange={(e) =>  mass = e.value } useGrouping={false} />
+           <label htmlFor="mass">Установите массу шариков</label>
+         </span>
+         <span className="p-float-label">
+           <InputNumber minFractionDigits={0} maxFractionDigits={2} id="length" value={20} onValueChange={(e) => dlina = e.value } useGrouping={false} />
+           <label htmlFor="length">Установите длину нити</label>
+         </span>
+         <span className="p-float-label">
+           <InputNumber minFractionDigits={0} maxFractionDigits={2} id="sim_time" value={20} onValueChange={(e) => frame_time = e.value } useGrouping={false} />
+           <label htmlFor="sim_time">Установите время одного кадра (мс) </label>
+         </span>
+         <span className="p-float-label">
+           <InputNumber minFractionDigits={0} maxFractionDigits={2} id="time_mult" value={1} onValueChange={(e) => time_multiplier = e.value } useGrouping={false} />
+           <label htmlFor="time_mult">Установите ускорение времени (1 -- совпадает с реальным)</label>
+         </span>
+         <span className="p-float-label">
+           <InputNumber minFractionDigits={0} maxFractionDigits={2} id="hook_text" value={70} onValueChange={(e) => k_hooka = e.value } useGrouping={false} />
+           <label htmlFor="hook_text">Установите коэффициент в законе Гука</label>
+         </span>
+         <span className="p-float-label">
+           <InputNumber id="pendulums" value={3} onValueChange={(e) => numPends = e.value } useGrouping={false} />
+           <label htmlFor="pendulums">Установите количество маятников</label>
+         </span>
+           <Button label="Start" onClick={start} />
+           <Button label="Stop" onClick={stop} />
+         <br />
+       </div>
 
-    </div>
-  );
+     </div>
+   );
 }
 
 export default App;
