@@ -104,8 +104,6 @@ function stop() {
 SVG.on(document, 'DOMContentLoaded', function() {
     draw = SVG().addTo('#draw_field').size(1000, 1000);
     document.getElementById("draw_field").width = 1000;
-    document.getElementById("start").onclick = start;
-    document.getElementById("stop").onclick = stop;
 });
 
 function reload() {
