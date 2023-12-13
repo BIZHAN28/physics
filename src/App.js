@@ -73,6 +73,11 @@ function App() {
 
   var stop = () => {
     draw.remove();
+    timerID = null;
+    glines = [];
+    gpends = [];
+    gcircles = [];
+    gcolors = [];
     draw = SVG().addTo('#draw_field').size(1000, 1000);
   }
 
@@ -115,7 +120,7 @@ function App() {
     <div className='MAIN'>
       <div id='pannel'>
         <span className="p-float-label">
-          <InputNumber id="radius" value={radius} onValueChange={(e) => radius = e.value} useGrouping={false} />
+          <InputNumber id="radius" value={radius} onValueChange={(e) => { radius = e.value; } } useGrouping={false} />
           <label htmlFor="radius">Установите радиус шариков</label>
         </span>
         <span className="p-float-label">
