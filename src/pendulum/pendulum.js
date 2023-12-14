@@ -33,6 +33,8 @@ class pendulum {
         let tens = this.string.graphic_tension;
         return 1 + Math.min(Math.max(tens * tr_coef * 2, 0), tr_coef * 2);
     }
+
+
 }
 
 export default pendulum;

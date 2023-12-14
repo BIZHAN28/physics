@@ -40,7 +40,7 @@ function App() {
   var radius = 1;
   var k_hooka = 50;
   var x_podvesa = screenWidth/2/10;
-  var y_podvesa = 1;
+  var y_podvesa = 20;
   var mass = 1;
   var dlina = 20;
   var szhat = 10; //коэффициент растяжения координат в координаты свгшки
@@ -76,7 +76,7 @@ function App() {
 
   var start = () => {
     console.log(radius, k_hooka, mass);
-
+    x_podvesa = screenWidth/2/10 - numPends;
     if (timerID) return;
     let gcolors = ['#648800', '#008864', '#880064'];
     for (let i = 0; i < numPends; i++) {
@@ -144,7 +144,7 @@ function App() {
            <Button label="Stop" onClick={stop} />
            <Button onClick={togglePanelVisibility} label={isPanelVisible ? '<' : '>'} className="round-button" style={{
              position: 'fixed',
-             top: "50%",
+             top: "50",
              //right: 0,
              transform: 'translateY(-50%)',
             }} />
