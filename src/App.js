@@ -1,4 +1,4 @@
-
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import "primereact/resources/themes/lara-light-purple/theme.css";
 
@@ -12,23 +12,34 @@ import { draw_pendulum } from './drawer';
 
 
 function App() {
-  var draw;
+  const [isPanelVisible, setPanelVisibility] = useState(true);
+  const panelRef = useRef(null);
+
+
   var timerID = null;
   var glines = [];
   var gpends = [];
   var gcircles = [];
   var grectangles = [];
 
-  const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  const screenWidth = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) - 20;
+  const screenHeight = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 200;
 
-  draw = SVG().addTo('#draw_field').size(1000, 1000);
+  var draw = useRef(null);
 
+   useEffect(() => {
+     draw.current = SVG().addTo('#draw_field').size(screenWidth, screenHeight);
+
+     return () => {
+       // Clean up the SVG instance when the component unmounts
+       draw.current.clear();
+     };
+   }, []);
 
   var numPends = 3;
   var radius = 1;
   var k_hooka = 50;
-  var x_podvesa = 50;
+  var x_podvesa = screenWidth/2/10;
   var y_podvesa = 1;
   var mass = 1;
   var dlina = 20;
@@ -36,10 +47,13 @@ function App() {
   var frame_time = 1000 / 60;
   var time_multiplier = 1;
   // getting from index html radius, mass, length
-
+  var togglePanelVisibility = () => {
+    setPanelVisibility(!isPanelVisible);
+  };
   var simulation = (pends, lines, rectangles, circles, colors, step_time = 1, coor_coef = 1) => {
-
+      x_podvesa = screenWidth/2/10 - numPends;
       collision_control(pends, step_time)
+
       for (let i = 0; i < lines.length; i++) {
           draw_pendulum(lines[i], rectangles[i], circles[i], pends[i], colors[i], coor_coef);
       }
@@ -51,13 +65,13 @@ function App() {
   }
 
   var stop = () => {
-    draw.remove();
+    draw.current.remove();
+    draw.current = SVG().addTo('#draw_field').size(screenWidth, screenHeight);
     timerID = null;
     glines = [];
     gpends = [];
     gcircles = [];
     grectangles = [];
-    draw = SVG().addTo('#draw_field').size(1000, 1000);
   }
 
   var start = () => {
@@ -73,9 +87,9 @@ function App() {
         const thrd_ = pendulumInstance.getThreadCoords(szhat);
         const tens_ = pendulumInstance.getTensionWidth(szhat);
 
-        const line = draw.line(thrd_).stroke({ color: gcolors[i % 3], width: tens_, linecap: 'round' });
-        const rect = draw.rect().fill('#FFFFF');
-        const circle = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill(gcolors[i % 3]);
+        const line = draw.current.line(thrd_).stroke({ color: gcolors[i % 3], width: tens_, linecap: 'round' });
+        const rect = draw.current .rect().fill('#FFFFF');
+        const circle = draw.current.circle(crds_[2]).move(crds_[0], crds_[1]).fill(gcolors[i % 3]);
         gpends.push(pendulumInstance);
         glines.push(line);
         gcircles.push(circle);
@@ -96,8 +110,8 @@ function App() {
 
 
   return (
-     <div className='MAIN'>
-       <div id='pannel'>
+     <div className='MAIN' >
+       <div id='pannel' ref={panelRef} style={{ transition: 'margin-left 0.5s', marginLeft: isPanelVisible ? 0 : `-${panelRef.current?.offsetWidth-10}px`, position: "fixed" }}>
          <span className="p-float-label">
            <InputNumber minFractionDigits={0} maxFractionDigits={2} id="radius" value={radius} onValueChange={(e) => radius = e.value } useGrouping={false} />
            <label htmlFor="radius">Установите радиус шариков</label>
@@ -116,7 +130,7 @@ function App() {
          </span>
          <span className="p-float-label">
            <InputNumber minFractionDigits={0} maxFractionDigits={2} id="time_mult" value={1} onValueChange={(e) => time_multiplier = e.value } useGrouping={false} />
-           <label htmlFor="time_mult">Установите ускорение времени (1 -- совпадает с реальным)</label>
+           <label htmlFor="time_mult">Установите ускорение времени <br/>(1 -- совпадает с реальным)</label>
          </span>
          <span className="p-float-label">
            <InputNumber minFractionDigits={0} maxFractionDigits={2} id="hook_text" value={70} onValueChange={(e) => k_hooka = e.value } useGrouping={false} />
@@ -128,9 +142,18 @@ function App() {
          </span>
            <Button label="Start" onClick={start} />
            <Button label="Stop" onClick={stop} />
+           <Button onClick={togglePanelVisibility} label={isPanelVisible ? '<' : '>'} className="round-button" style={{
+             position: 'fixed',
+             top: "50%",
+             //right: 0,
+             transform: 'translateY(-50%)',
+            }} />
          <br />
-       </div>
 
+       </div>
+       <div id="draw_field">
+
+        </div>
      </div>
    );
 }

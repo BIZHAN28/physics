@@ -12,10 +12,7 @@
     text-align: center;
 }
 
-#centr>* {
-    width: 1000px;
-    margin: auto;
-}
+
 
 body {
     /* background-color: black; */
@@ -26,24 +23,25 @@ body {
 }
 
 #pannel>* {
-    margin-top: 20px;
-}
+    margin-top:20px;
 
+}
+.p-float-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold
+}
 .p-button {
     margin-left: 20px;
     width: 100px;
 }
-
-#pannel {
-    width: 500px;
+.round-button {
+  border-radius: 50%;
+  width: 50px; /* Ширина кнопки */
+  height: 50px; /* Высота кнопки */
 }
 
+
 #draw_field {
-    position: fixed;
-    width: 500px;
-    margin-top: -500px;
-    margin-left: 240px;
-    margin-bottom: 200px;
-    /* background-color: black; */
-    /* border: 1px solid black; */
+
+
 }
