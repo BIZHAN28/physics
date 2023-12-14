@@ -40,7 +40,7 @@ function App() {
   var radius = 1;
   var k_hooka = 50;
   var x_podvesa = screenWidth/2/10;
-  var y_podvesa = 1;
+  var y_podvesa = 10;
   var mass = 1;
   var dlina = 20;
   var szhat = 10; //коэффициент растяжения координат в координаты свгшки

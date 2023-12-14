@@ -8,7 +8,7 @@ function draw_pendulum(line_obj,rect_obj, circle_obj, pend_obj, colr = "#648800"
     line_obj.plot(thrd_).stroke({ color: colr, width: tens_, linecap: 'round' });
 
     const rectWidth = 100;
-    const rectHeight = 50;
+    const rectHeight = 20;
     rect_obj.width(rectWidth).height(rectHeight).move(thrd_[0]-rectWidth/2, thrd_[1]-rectHeight);
 
     circle_obj.move(crds_[0], crds_[1]);
