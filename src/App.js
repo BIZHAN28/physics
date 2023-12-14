@@ -40,7 +40,7 @@ function App() {
   var radius = 1;
   var k_hooka = 50;
   var x_podvesa = screenWidth/2/10;
-  var y_podvesa = 20;
+  var y_podvesa = 1;
   var mass = 1;
   var dlina = 20;
   var szhat = 10; //коэффициент растяжения координат в координаты свгшки
@@ -111,7 +111,13 @@ function App() {
 
   return (
      <div className='MAIN' >
-       <div id='pannel' ref={panelRef} style={{ transition: 'margin-left 0.5s', marginLeft: isPanelVisible ? 0 : `-${panelRef.current?.offsetWidth-10}px`, position: "fixed" }}>
+       <div id='pannel' ref={panelRef} style={{
+          transition: 'margin-left 0.5s',
+          marginLeft: isPanelVisible ? 0 : `-${panelRef.current?.offsetWidth-10}px`,
+          position: "fixed",
+          height: "95vh",
+
+          overflowY: "auto",  }}>
          <span className="p-float-label">
            <InputNumber minFractionDigits={0} maxFractionDigits={2} id="radius" value={radius} onValueChange={(e) => radius = e.value } useGrouping={false} />
            <label htmlFor="radius">Установите радиус шариков</label>
@@ -140,14 +146,17 @@ function App() {
            <InputNumber id="pendulums" value={3} onValueChange={(e) => numPends = e.value } useGrouping={false} />
            <label htmlFor="pendulums">Установите количество маятников</label>
          </span>
+         <span className="p-float-label">
            <Button label="Start" onClick={start} />
            <Button label="Stop" onClick={stop} />
+
            <Button onClick={togglePanelVisibility} label={isPanelVisible ? '<' : '>'} className="round-button" style={{
              position: 'fixed',
-             top: "50",
+
              //right: 0,
              transform: 'translateY(-50%)',
             }} />
+            </span>
          <br />
 
        </div>
