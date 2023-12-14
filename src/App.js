@@ -23,7 +23,7 @@ function App() {
   var grectangles = [];
 
   const screenWidth = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) - 20;
-  const screenHeight = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 200;
+  const screenHeight = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)-80;
 
   var draw = useRef(null);
 
